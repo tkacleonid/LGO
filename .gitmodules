@@ -1,0 +1,15 @@
+[submodule "COMPI"]
+	path = COMPI
+	url = ../../mposypkin/COMPI.git
+[submodule "NUC"]
+	path = NUC
+	url = ../../mposypkin/NUC.git
+[submodule "OPTITEST"]
+	path = OPTITEST
+	url = ../../mposypkin/OPTITEST.git
+[submodule "snowgoose"]
+	path = snowgoose
+	url = ../../mposypkin/snowgoose.git
+[submodule "unittests"]
+	path = unittests
+	url = ../../alusov/unittests.git
