@@ -224,6 +224,7 @@ void fnCalcFunLimitsRozenbroke(double *inBox, int inRank, double *outLimits)
 */
 void fnGetOptValueOnCPU(double *inBox, int inRank, int inNumBoxesSplitCoeff, double inEps, double inMaxIter, void (*inFun)(double *,int,double *), double *outBox, double*outMin, double *outEps,int *outStatus)
 {
+<<<<<<< HEAD
 	int maxArrayLen = 1000000;
 	int incrementCoeff = 4;
 
@@ -232,6 +233,12 @@ void fnGetOptValueOnCPU(double *inBox, int inRank, int inNumBoxesSplitCoeff, dou
 	double *boxes =  new double[numBoxes*inRank*2*maxArrayLen];
 	double *boxesResult = new double[numBoxes*3*maxArrayLen];
 	double *restBoxes = new double[numBoxes*inRank*2*maxArrayLen];
+=======
+	int numBoxes = inNumBoxesSplitCoeff;
+	double *boxes =  new double[numBoxes*inRank*2];
+	double *boxesResult = new double[numBoxes*3];
+	double *restBoxes = new double[inRank*2];
+>>>>>>> Dihotomy spliting. Using arrays data structures
 	double *tempRestBoxes = NULL;
 	double h;
 	int numNewBoxes = 0;
@@ -267,7 +274,11 @@ void fnGetOptValueOnCPU(double *inBox, int inRank, int inNumBoxesSplitCoeff, dou
 		for(k = 0; k < numRestBoxes; k++)
 		{
 			maxDimensionIndex = 0;
+<<<<<<< HEAD
 			maxDimension = restBoxes[(k*inRank)*2 + 1] - restBoxes[(k*inRank)*2];
+=======
+			maxDimensionIndex = restBoxes[(k*inRank)*2 + 1] - restBoxes[(k*inRank)*2];
+>>>>>>> Dihotomy spliting. Using arrays data structures
 			for(i = 0; i < inRank; i++)
 			{
 				h = (restBoxes[(k*inRank+i)*2 + 1] - restBoxes[(k*inRank+i)*2]);

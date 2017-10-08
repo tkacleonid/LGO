@@ -14,6 +14,7 @@ void (*inFun)(const double *,int,double *);
 
 void fnGetOptValueOnCPUSortWithLib(const double *inBox, int inRank, int inNumBoxesSplitCoeff, double inEps, double inMaxIter, void (*inFun)(const double *,int,double *), double *outBox, double*outMin, double *outEps,int *outStatus)
 {
+<<<<<<< HEAD
     
     
 
@@ -523,6 +524,50 @@ int main() {
     delete [] outBox;
 
     return 0;
+=======
+    int inRank = 2;
+	time_t t_start, t_end;
+
+	double *inBox = new double[inRank*2];
+	double *outBox = new double[inRank*2];
+	double outMin = 0.0;
+	double inEps = 0.0001;
+	double outEps = 0.0;
+	double inMaxIter = 100;
+	int inNumBoxesSplitCoeff = 2;
+	int status = -1;
+
+
+	for(int i = 0; i < inRank; i++)
+	{
+		inBox[i*2] = -20.0;
+		inBox[i*2+1] = 20.0;
+	}
+
+	time(&t_start);
+	fnGetOptValueOnCPU(inBox, inRank, inNumBoxesSplitCoeff, inEps, inMaxIter, fnCalcFunLimitsAluffiPentini2, outBox,&outMin, &outEps, &status);
+	time(&t_end);
+
+	std::cout << "Result: ";
+	for(int i = 0; i < inRank; i++)
+	{
+		std::cout << "[" << outBox[i*2] << "; " << outBox[i*2 + 1]  << "]\t";
+	}
+
+	std::cout << "\n";
+	std::cout << "min = " << outMin << "\t";
+	std::cout << "eps = " << outEps;
+	std::cout << "\n";
+	std::cout << "time = " << (t_end-t_start) << "\t";
+	std::cout << "\n";
+
+	std::cin.get();
+
+	delete [] inBox;
+	delete [] outBox;
+
+	return 0;
+>>>>>>> Dihotomy spliting. Using arrays data structures
 }
 
 
