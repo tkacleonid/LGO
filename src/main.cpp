@@ -24,7 +24,7 @@ void fnGetOptValueOnCPUSortWithLib(const double *inBox, int inRank, int inNumBox
 
 
 int main() {
-    int inRank =4;
+    int inRank =8;
 
     double *inBox = new double[inRank * 2];
     double *outBox;
